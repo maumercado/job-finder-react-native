@@ -7,7 +7,15 @@ const SCREEN_WIDTH = Dimensions.get("window").width;
 class Slides extends Component {
     renderLastSlide(index) {
         if (index === this.props.data.length - 1) {
-            return <Button title="Onwards!" raised />;
+            return (
+                <Button
+                    containerViewStyle={{ marginTop: 15 }}
+                    buttonStyle={styles.buttonStyle}
+                    title="Onwards!"
+                    raised
+                    onPress={this.props.onComplete}
+                />
+            );
         }
     }
 
@@ -42,7 +50,11 @@ const styles = {
     },
     textStyle: {
         fontSize: 30,
-        color: "white"
+        color: "white",
+        textAlign: "center"
+    },
+    buttonStyle: {
+        backgroundColor: "#0288D1"
     }
 };
 
