@@ -1,12 +1,12 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
 import { TabNavigator, StackNavigator } from "react-navigation";
-import { withLazyLoading } from "react-navigation-utils";
 
 import { Provider } from "react-redux";
 import store from "./store";
 
 import AuthScreen from "./screens/AuthScreen";
+
 import WelcomeScreen from "./screens/WelcomeScreen";
 
 import MapScreen from "./screens/MapScreen";
@@ -20,7 +20,7 @@ export default class App extends React.Component {
         const MainNavigator = TabNavigator(
             {
                 welcome: { screen: WelcomeScreen },
-                auth: { screen: withLazyLoading(AuthScreen) },
+                auth: { screen: AuthScreen },
                 main: {
                     screen: TabNavigator({
                         map: { screen: MapScreen },
@@ -37,7 +37,8 @@ export default class App extends React.Component {
             {
                 navigationOptions: {
                     tabBarVisible: false
-                }
+                },
+                lazy: true
             }
         );
 
