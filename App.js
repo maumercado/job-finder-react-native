@@ -1,6 +1,7 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
 import { TabNavigator, StackNavigator } from "react-navigation";
+import { withLazyLoading } from "react-navigation-utils";
 
 import { Provider } from "react-redux";
 import store from "./store";
@@ -16,22 +17,29 @@ import ReviewScreen from "./screens/ReviewScreen";
 
 export default class App extends React.Component {
     render() {
-        const MainNavigator = TabNavigator({
-            welcome: { screen: WelcomeScreen },
-            auth: { screen: AuthScreen },
-            main: {
-                screen: TabNavigator({
-                    map: { screen: MapScreen },
-                    deck: { screen: DeckScreen },
-                    review: {
-                        screen: StackNavigator({
-                            review: { screen: ReviewScreen },
-                            settings: { screen: SettingsScreen }
-                        })
-                    }
-                })
+        const MainNavigator = TabNavigator(
+            {
+                welcome: { screen: WelcomeScreen },
+                auth: { screen: withLazyLoading(AuthScreen) },
+                main: {
+                    screen: TabNavigator({
+                        map: { screen: MapScreen },
+                        deck: { screen: DeckScreen },
+                        review: {
+                            screen: StackNavigator({
+                                review: { screen: ReviewScreen },
+                                settings: { screen: SettingsScreen }
+                            })
+                        }
+                    })
+                }
+            },
+            {
+                navigationOptions: {
+                    tabBarVisible: false
+                }
             }
-        });
+        );
 
         return (
             <Provider store={store}>
