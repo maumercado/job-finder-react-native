@@ -21,7 +21,9 @@
     "dependencies": {
         "axios": "^0.17.1",
         "expo": "^25.0.0",
+        "latlng-to-zip": "0.0.1",
         "lodash": "^4.17.4",
+        "qs": "^6.5.1",
         "react": "16.2.0",
         "react-native": "0.52.0",
         "react-native-elements": "^0.19.0",
