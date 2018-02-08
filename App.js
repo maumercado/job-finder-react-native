@@ -22,16 +22,23 @@ export default class App extends React.Component {
                 welcome: { screen: WelcomeScreen },
                 auth: { screen: AuthScreen },
                 main: {
-                    screen: TabNavigator({
-                        map: { screen: MapScreen },
-                        deck: { screen: DeckScreen },
-                        review: {
-                            screen: StackNavigator({
-                                review: { screen: ReviewScreen },
-                                settings: { screen: SettingsScreen }
-                            })
+                    screen: TabNavigator(
+                        {
+                            map: { screen: MapScreen },
+                            deck: { screen: DeckScreen },
+                            review: {
+                                screen: StackNavigator({
+                                    review: { screen: ReviewScreen },
+                                    settings: { screen: SettingsScreen }
+                                })
+                            }
+                        },
+                        {
+                            tabBarOptions: {
+                                labelStyle: { fontSize: 12 }
+                            }
                         }
-                    })
+                    )
                 }
             },
             {
