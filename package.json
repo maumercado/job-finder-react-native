@@ -20,7 +20,7 @@
     },
     "dependencies": {
         "axios": "^0.17.1",
-        "expo": "^25.0.0",
+        "expo": "^41.0.0",
         "latlng-to-zip": "0.0.1",
         "lodash": "^4.17.5",
         "qs": "^6.5.1",
